@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AttributeUtils } from '../dto/Attribute';
 import { Character } from '../dto/Character';
+import { CharacterFactory } from '../factory/character-factory';
+import { SkillService } from '../services/skill.service';
 
 @Component({
   selector: 'app-character-sheet',
@@ -12,11 +14,14 @@ export class CharacterSheetComponent implements OnInit {
 
   public c: Character;
 
-  constructor() { 
-    this.c = new Character('Name!', 'Human');
+  constructor(private skillService: SkillService) { 
+    const factory = new CharacterFactory(this.skillService);
+
+    this.c = factory.create('Name', 'Human');
   }
 
   ngOnInit(): void {
+
   }
 
 }

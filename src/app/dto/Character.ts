@@ -1,6 +1,5 @@
-import { Attribute } from "./Attribute";
 import { Die } from "./Die";
-import { Skill } from "./Skill";
+import { Skill, Skills } from "./Skill";
 
 export class Character {
     public name: string;
@@ -18,45 +17,6 @@ export class Character {
     constructor(name: string, race: string) {
         this.name = name;
         this.race = race;
-
-        this.addBaseSkills();
-    }
-
-    private addBaseSkills() {
-        this.skills.push({
-            name: 'Athletics',
-            attribute: Attribute.AGILITY,
-            description: null,
-            die: Die.d4()
-        });
-
-        this.skills.push({
-            name: 'Common Knowledge',
-            attribute: Attribute.SMARTS,
-            description: null,
-            die: Die.d4()
-        });
-
-        this.skills.push({
-            name: 'Notice',
-            attribute: Attribute.SMARTS,
-            description: null,
-            die: Die.d4()
-        });
-
-        this.skills.push({
-            name: 'Persuasion',
-            attribute: Attribute.SPIRIT,
-            description: null,
-            die: Die.d4()
-        });
-
-        this.skills.push({
-            name: 'Stealth',
-            attribute: Attribute.AGILITY,
-            description: null,
-            die: Die.d4()
-        });
     }
 
     public getPace(): number {
@@ -64,10 +24,29 @@ export class Character {
     }
 
     public getParry(): number {
-        return 2; // + fighting / 2
+        const fighting: Skill | null = this.findSkill(Skills.FIGHTING);
+
+        let parry = 2;
+        if (fighting != null) {
+            parry += fighting.die.side / 2;
+        }
+        return parry;
     }
 
     public getToughness(): number {
         return 2 + this.vigor.side / 2;
+    }
+
+    private findSkill(s: Skills): Skill | null {
+        let skill: Skill | null = null;
+
+        for (const loop of this.skills) {
+          if (loop.getId() === s) {
+            skill = loop;
+            break;
+          }
+        }
+
+        return skill;
     }
 }

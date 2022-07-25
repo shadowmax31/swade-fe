@@ -55,8 +55,8 @@
 
 <div class="skills">
     <div class="skill" *ngFor="let skill of c.skills">
-        <div>{{ skill.name }} ({{ AttributeUtils.toString(skill.attribute) }})</div>
-        <div *ngIf="skill.description != null">{{ skill.description }}</div>
+        <div>{{ skill.getName() }} ({{ AttributeUtils.toString(skill.getAttribute()) }})</div>
+        <div *ngIf="skill.getDescription() != null">{{ skill.getDescription() }}</div>
         <app-die-selector [(die)]="skill.die"></app-die-selector>
     </div>
 </div>
