@@ -1,0 +1,9 @@
+<div *ngIf="visible" id="modal-container" (click)="close($event)">
+    <div class="modal-body">
+        <div class="modal-header">
+            <div class="title">{{ title }}</div>
+            <div (click)="close()" class="close">X</div>
+        </div>
+        <ng-content></ng-content>
+    </div>
+</div>

@@ -1,9 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { AttributeUtils } from '../dto/attribute';
 import { Character } from '../dto/character';
+import { Die } from '../dto/die';
+import { Skill, SkillInfo } from '../dto/skill';
 import { CharacterFactory } from '../factory/character-factory';
+import { ModalComponent } from '../modal/modal.component';
 import { SkillService } from '../services/skill.service';
-import { SkillSelectorComponent } from '../skill-selector/skill-selector.component';
 
 @Component({
   selector: 'app-character-sheet',
@@ -14,9 +16,10 @@ export class CharacterSheetComponent implements OnInit {
   AttributeUtils = AttributeUtils;
 
   public c: Character;
+  public skills: SkillInfo[] = [];
 
-  @ViewChild('skillSelector')
-  private skillSelector!: SkillSelectorComponent;
+  @ViewChild('skillModal')
+  private skillModal!: ModalComponent;
 
   constructor(private skillService: SkillService) { 
     const factory = new CharacterFactory(this.skillService);
@@ -25,11 +28,15 @@ export class CharacterSheetComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
+    this.skills = this.skillService.getAll();
   }
 
   manageSkills() {
-    this.skillSelector.open();
+    this.skillModal.open();
+  }
+
+  addSkill(info: SkillInfo) {
+    this.c.skills.push(new Skill(info, Die.d4()));
   }
 
   manageWeapons() {

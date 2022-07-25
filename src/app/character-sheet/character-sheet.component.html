@@ -89,4 +89,13 @@
     Gear
 </div> -->
 
-<app-skill-selector #skillSelector [character]="c"></app-skill-selector>
+<app-modal #skillModal [title]="'Skills'">
+    <ng-container *ngIf="c != null">
+        <div *ngFor="let info of skills" class="skill-row">
+            <div>{{ info.name }}</div>
+            <div *ngIf="c.findSkill(info.id) == null">
+                <button (click)="addSkill(info)">Add</button>
+            </div>
+        </div>
+    </ng-container>
+</app-modal>
