@@ -34,6 +34,7 @@ export class Die {
             case 8:
                 return Die.d10();
             case 10:
+            case 12:
                 return Die.d12();
             default:
                 throw Error(`Cannot upgrade a D${this.side}`);

@@ -1,5 +1,5 @@
-import { Die } from "./Die";
-import { Skill, Skills } from "./Skill";
+import { Die } from "./die";
+import { Skill, Skills } from "./skill";
 
 export class Character {
     public name: string;

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Attribute } from '../dto/Attribute';
-import { Skill, SkillInfo, Skills } from '../dto/Skill';
+import { Attribute } from '../dto/attribute';
+import { Skill, SkillInfo, Skills } from '../dto/skill';
 
 @Injectable({
   providedIn: 'root'

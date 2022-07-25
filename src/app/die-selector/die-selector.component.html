@@ -1,7 +1,10 @@
 <div class="dice">
-    <div (click)="changeDie(Die.d4())" [ngClass]="{ 'selected': isD(Die.d4()) }">D4</div>
-    <div (click)="changeDie(Die.d6())" [ngClass]="{ 'selected': isD(Die.d6()) }">D6</div>
-    <div (click)="changeDie(Die.d8())" [ngClass]="{ 'selected': isD(Die.d8()) }">D8</div>
-    <div (click)="changeDie(Die.d10())" [ngClass]="{ 'selected': isD(Die.d10()) }">D10</div>
-    <div (click)="changeDie(Die.d12())" [ngClass]="{ 'selected': isD(Die.d12()) }">D12</div>
+    <div (click)="changeDie(Die.d4())" [ngClass]="{ 'die': true, 'selected': isD(Die.d4()) }">D4</div>
+    <div (click)="changeDie(Die.d6())" [ngClass]="{ 'die': true, 'selected': isD(Die.d6()) }">D6</div>
+    <div (click)="changeDie(Die.d8())" [ngClass]="{ 'die': true, 'selected': isD(Die.d8()) }">D8</div>
+    <div (click)="changeDie(Die.d10())" [ngClass]="{ 'die': true, 'selected': isD(Die.d10()) }">D10</div>
+    <div (click)="changeDie(Die.d12())" [ngClass]="{ 'die': true, 'selected': isD(Die.d12()) }">D12</div>
+    <div class="upgrade" (click)="changeDie(die.upgrade())">
+        <fa-icon [icon]="faUpgrade"></fa-icon>
+    </div>
 </div>

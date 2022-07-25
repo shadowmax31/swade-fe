@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Die } from '../dto/Die';
+import { faAnglesUp } from '@fortawesome/free-solid-svg-icons';
+import { Die } from '../dto/die';
 
 @Component({
   selector: 'app-die-selector',
@@ -8,6 +9,7 @@ import { Die } from '../dto/Die';
 })
 export class DieSelectorComponent implements OnInit {
   Die = Die;
+  faUpgrade = faAnglesUp;
 
   @Input()
   die = Die.d4();

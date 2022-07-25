@@ -1,5 +1,5 @@
-import { Attribute } from "./Attribute";
-import { Die } from "./Die";
+import { Attribute } from "./attribute";
+import { Die } from "./die";
 
 export class Skill {
 

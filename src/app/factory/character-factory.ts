@@ -1,6 +1,6 @@
-import { Character } from "../dto/Character";
-import { Die } from "../dto/Die";
-import { Skill, SkillInfo, Skills } from "../dto/Skill";
+import { Character } from "../dto/character";
+import { Die } from "../dto/die";
+import { Skill, SkillInfo, Skills } from "../dto/skill";
 import { SkillService } from "../services/skill.service";
 
 export class CharacterFactory {
