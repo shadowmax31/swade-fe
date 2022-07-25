@@ -42,4 +42,5 @@ export enum Skills {
     STEALTH,
 
     FIGHTING,
+    SHOOTING,
 }

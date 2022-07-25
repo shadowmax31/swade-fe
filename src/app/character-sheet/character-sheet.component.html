@@ -59,6 +59,7 @@
         <div *ngIf="skill.getDescription() != null">{{ skill.getDescription() }}</div>
         <app-die-selector [(die)]="skill.die"></app-die-selector>
     </div>
+    <button (click)="manageSkills()">Add skill</button>
 </div>
 
 <!-- 
@@ -81,3 +82,5 @@
 <div>
     Gear
 </div> -->
+
+<app-skill-selector #skillSelector [character]="c"></app-skill-selector>

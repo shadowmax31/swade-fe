@@ -10,12 +10,20 @@ export class SkillService {
   private skills: SkillInfo[] = [];
   
   constructor() {
+    // Core
     this.skills.push(new SkillInfo(Skills.ATHLETICS, 'Athletics', Attribute.AGILITY, null));
     this.skills.push(new SkillInfo(Skills.COMMON_KNOWLEDGE, 'Common Knowledge', Attribute.SMARTS, null));
     this.skills.push(new SkillInfo(Skills.NOTICE, 'Notice', Attribute.SMARTS, null));
     this.skills.push(new SkillInfo(Skills.PERSUASION, 'Persuasion', Attribute.SPIRIT, null));
     this.skills.push(new SkillInfo(Skills.STEALTH, 'Stealth', Attribute.AGILITY, null));
+
+    // Other
     this.skills.push(new SkillInfo(Skills.FIGHTING, 'Fighthing', Attribute.AGILITY, null));
+    this.skills.push(new SkillInfo(Skills.SHOOTING, 'Shooting', Attribute.AGILITY, null));
+  }
+
+  public getAll() {
+    return this.skills;
   }
   
   public get(s: Skills) {

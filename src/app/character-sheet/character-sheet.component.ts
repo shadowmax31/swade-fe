@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { AttributeUtils } from '../dto/Attribute';
 import { Character } from '../dto/Character';
 import { CharacterFactory } from '../factory/character-factory';
 import { SkillService } from '../services/skill.service';
+import { SkillSelectorComponent } from '../skill-selector/skill-selector.component';
 
 @Component({
   selector: 'app-character-sheet',
@@ -14,6 +15,9 @@ export class CharacterSheetComponent implements OnInit {
 
   public c: Character;
 
+  @ViewChild('skillSelector')
+  private skillSelector!: SkillSelectorComponent;
+
   constructor(private skillService: SkillService) { 
     const factory = new CharacterFactory(this.skillService);
 
@@ -22,6 +26,10 @@ export class CharacterSheetComponent implements OnInit {
 
   ngOnInit(): void {
 
+  }
+
+  manageSkills() {
+    this.skillSelector.open();
   }
 
 }

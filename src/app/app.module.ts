@@ -6,12 +6,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CharacterSheetComponent } from './character-sheet/character-sheet.component';
 import { DieSelectorComponent } from './die-selector/die-selector.component';
+import { SkillSelectorComponent } from './skill-selector/skill-selector.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CharacterSheetComponent,
-    DieSelectorComponent
+    DieSelectorComponent,
+    SkillSelectorComponent
   ],
   imports: [
     BrowserModule,

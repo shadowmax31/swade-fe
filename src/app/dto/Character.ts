@@ -37,7 +37,7 @@ export class Character {
         return 2 + this.vigor.side / 2;
     }
 
-    private findSkill(s: Skills): Skill | null {
+    public findSkill(s: Skills): Skill | null {
         let skill: Skill | null = null;
 
         for (const loop of this.skills) {
