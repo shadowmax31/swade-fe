@@ -5,6 +5,10 @@ export class Die {
         this.side = side;
     }
 
+    public static none() {
+        return new Die(0);
+    }
+
     public static d4() {
         return new Die(4);
     }
@@ -27,6 +31,8 @@ export class Die {
 
     public upgrade(): Die {
         switch (this.side) {
+            case 0:
+                return Die.d4();
             case 4:
                 return Die.d6();
             case 6:

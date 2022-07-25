@@ -12,7 +12,7 @@ export class DieSelectorComponent implements OnInit {
   faUpgrade = faAnglesUp;
 
   @Input()
-  die = Die.d4();
+  die: Die = Die.d4();
 
   @Output()
   dieChange = new EventEmitter<Die>();
@@ -23,7 +23,7 @@ export class DieSelectorComponent implements OnInit {
   }
 
   isD(die: Die) {
-    return this.die.equals(die);
+    return this.die?.equals(die);
   }
 
   changeDie(newDie: Die) {
