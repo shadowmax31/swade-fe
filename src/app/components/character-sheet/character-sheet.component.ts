@@ -1,14 +1,14 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { faShieldHeart, faShirt, faSocks } from '@fortawesome/free-solid-svg-icons';
-import { Armor } from '../dto/armor';
-import { AttributeUtils } from '../dto/attribute';
-import { Character } from '../dto/character';
-import { Die } from '../dto/die';
-import { Hindrance } from '../dto/hindrance';
-import { Skill, SkillInfo } from '../dto/skill';
-import { CharacterFactory } from '../factory/character-factory';
+import { Armor } from '../../dto/armor';
+import { AttributeUtils } from '../../dto/attribute';
+import { Character } from '../../dto/character';
+import { Die } from '../../dto/die';
+import { Hindrance } from '../../dto/hindrance';
+import { Skill, SkillInfo } from '../../dto/skill';
+import { CharacterFactory } from './factory/character-factory';
 import { ModalComponent } from '../modal/modal.component';
-import { SkillService } from '../services/skill.service';
+import { SkillService } from '../../services/skill.service';
 
 @Component({
   selector: 'app-character-sheet',

@@ -5,9 +5,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CharacterSheetComponent } from './character-sheet/character-sheet.component';
-import { DieSelectorComponent } from './die-selector/die-selector.component';
-import { ModalComponent } from './modal/modal.component';
+import { CharacterSheetComponent } from './components/character-sheet/character-sheet.component';
+import { DieSelectorComponent } from './components/character-sheet/die-selector/die-selector.component';
+import { ModalComponent } from './components/modal/modal.component';
 
 @NgModule({
   declarations: [

@@ -1,7 +1,7 @@
-import { Character } from "../dto/character";
-import { Die } from "../dto/die";
-import { Skill, SkillInfo, Skills } from "../dto/skill";
-import { SkillService } from "../services/skill.service";
+import { Character } from "../../../dto/character";
+import { Die } from "../../../dto/die";
+import { Skill, SkillInfo, Skills } from "../../../dto/skill";
+import { SkillService } from "../../../services/skill.service";
 
 export class CharacterFactory {
     constructor (private skillService: SkillService) {

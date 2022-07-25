@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CharacterSheetComponent } from './character-sheet/character-sheet.component';
+import { CharacterSheetComponent } from './components/character-sheet/character-sheet.component';
 
 const routes: Routes = [
   { path: 'character', component: CharacterSheetComponent }
