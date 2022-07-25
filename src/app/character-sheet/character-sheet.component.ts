@@ -32,4 +32,12 @@ export class CharacterSheetComponent implements OnInit {
     this.skillSelector.open();
   }
 
+  manageWeapons() {
+
+  }
+
+  manageArmors() {
+
+  }
+
 }

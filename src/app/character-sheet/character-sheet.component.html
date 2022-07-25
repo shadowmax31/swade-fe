@@ -59,14 +59,20 @@
         <div *ngIf="skill.getDescription() != null">{{ skill.getDescription() }}</div>
         <app-die-selector [(die)]="skill.die"></app-die-selector>
     </div>
-    <button (click)="manageSkills()">Add skill</button>
+    <button (click)="manageSkills()">Manage skills</button>
+</div>
+
+<div class="weapons">
+    Weapons 
+    <button (click)="manageWeapons()">Manage weapons</button>
+</div>
+
+<div class="armors">
+    Armor
+    <button (click)="manageArmors()">Manage armors</button>
 </div>
 
 <!-- 
-<div>
-    Weapons
-</div>
-
 <div>
     Powers
 </div>
