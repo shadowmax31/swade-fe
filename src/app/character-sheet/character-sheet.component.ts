@@ -50,6 +50,15 @@ export class CharacterSheetComponent implements OnInit {
     this.c.skills.push(new Skill(info, Die.d4()));
   }
 
+  removeSkill(info: SkillInfo) {
+    const foundList = this.c.skills.filter(s => s.info.id === info.id);
+
+    for (const found of foundList) {
+      const index = this.c.skills.indexOf(found);
+      this.c.skills.splice(index, 1);
+    }
+  }
+
   manageWeapons() {
 
   }
@@ -88,6 +97,14 @@ export class CharacterSheetComponent implements OnInit {
     }
 
     return str;
+  }
+
+  getCoreSkills(): SkillInfo[] {
+    return this.skills.filter(x => x.core);
+  }
+
+  getOtherSkills(): SkillInfo[] {
+    return this.skills.filter(x => !x.core);
   }
 
 }

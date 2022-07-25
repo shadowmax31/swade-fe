@@ -103,10 +103,13 @@
 
 <app-modal #skillModal [title]="'Skills'">
     <ng-container *ngIf="c != null">
-        <div *ngFor="let info of skills" class="skill-row">
+        <div *ngFor="let info of getOtherSkills()" class="skill-row">
             <div>{{ info.name }}</div>
             <div *ngIf="c.findSkill(info.id) == null">
                 <button (click)="addSkill(info)">Add</button>
+            </div>
+            <div *ngIf="c.findSkill(info.id) != null">
+                <button (click)="removeSkill(info)">Remove</button>
             </div>
         </div>
     </ng-container>

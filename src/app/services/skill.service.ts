@@ -11,11 +11,11 @@ export class SkillService {
   
   constructor() {
     // Core
-    this.skills.push(new SkillInfo(Skills.ATHLETICS, 'Athletics', Attribute.AGILITY, null));
-    this.skills.push(new SkillInfo(Skills.COMMON_KNOWLEDGE, 'Common Knowledge', Attribute.SMARTS, null));
-    this.skills.push(new SkillInfo(Skills.NOTICE, 'Notice', Attribute.SMARTS, null));
-    this.skills.push(new SkillInfo(Skills.PERSUASION, 'Persuasion', Attribute.SPIRIT, null));
-    this.skills.push(new SkillInfo(Skills.STEALTH, 'Stealth', Attribute.AGILITY, null));
+    this.skills.push(new SkillInfo(Skills.ATHLETICS, 'Athletics', Attribute.AGILITY, null, true));
+    this.skills.push(new SkillInfo(Skills.COMMON_KNOWLEDGE, 'Common Knowledge', Attribute.SMARTS, null, true));
+    this.skills.push(new SkillInfo(Skills.NOTICE, 'Notice', Attribute.SMARTS, null, true));
+    this.skills.push(new SkillInfo(Skills.PERSUASION, 'Persuasion', Attribute.SPIRIT, null, true));
+    this.skills.push(new SkillInfo(Skills.STEALTH, 'Stealth', Attribute.AGILITY, null, true));
 
     // Other
     this.skills.push(new SkillInfo(Skills.FIGHTING, 'Fighthing', Attribute.AGILITY, null));

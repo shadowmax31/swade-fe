@@ -29,7 +29,8 @@ export class SkillInfo {
     constructor (public id: Skills,
                  public name: string, 
                  public attribute: Attribute,
-                 public description: string | null) {
+                 public description: string | null,
+                 public core = false) {
 
     }
 }
