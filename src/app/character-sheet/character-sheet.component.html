@@ -1,0 +1,83 @@
+<div class="block">
+    <div class="line">
+        <label #name>Name:</label>
+        <input for="name" [(ngModel)]="c.name" />
+    </div>
+    <div class="line">
+        <label #race>Race:</label>
+        <input for="race" [(ngModel)]="c.race" />
+    </div>
+    <div class="line">
+        <label #size>Size:</label>
+        <input for="size" type="number" [(ngModel)]="c.size" />
+    </div>
+
+    <div class="derived-stats-container">
+        <div>
+            <label>Pace</label>
+            <div class="border">{{ c.getPace() }}</div>
+        </div>
+        <div>
+            <label>Parry</label>
+            <div class="border">{{ c.getParry() }}</div>
+        </div>
+        <div>
+            <label>Toughness</label>
+            <div class="border">{{ c.getToughness() }}</div>
+        </div>
+    </div>
+</div>
+
+<div class="attributes">
+    <div class="attribute">
+        Agility
+        <app-die-selector [(die)]="c.agility"></app-die-selector>
+    </div>
+    <div class="attribute">
+        Smarts
+        <app-die-selector [(die)]="c.smarts"></app-die-selector>
+    </div>
+    <div class="attribute">
+        Spirit
+        <app-die-selector [(die)]="c.spirit"></app-die-selector>
+    </div>
+    <div class="attribute">
+        Strength
+        <app-die-selector [(die)]="c.strength"></app-die-selector>
+    </div>
+    <div class="attribute">
+        Vigor
+        <app-die-selector [(die)]="c.vigor"></app-die-selector>
+    </div>
+</div>
+
+<hr />
+
+<div class="skills">
+    <div class="skill" *ngFor="let skill of c.skills">
+        <div>{{ skill.name }} ({{ AttributeUtils.toString(skill.attribute) }})</div>
+        <div *ngIf="skill.description != null">{{ skill.description }}</div>
+        <app-die-selector [(die)]="skill.die"></app-die-selector>
+    </div>
+</div>
+
+<!-- 
+<div>
+    Weapons
+</div>
+
+<div>
+    Powers
+</div>
+
+<div>
+    Edges and Advances
+</div>
+
+<div>
+    Hindrances
+</div>
+
+<div>
+    Gear
+</div> -->

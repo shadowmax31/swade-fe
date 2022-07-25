@@ -1,0 +1,53 @@
+$row-gap: 5px
+$row-padding: 10px
+
+:host
+    width: 100%
+
+.block
+    display: flex
+    flex-direction: column
+    row-gap: $row-gap
+
+    width: 100%
+
+.line
+    display: flex
+    flex-direction: row
+    column-gap: 8px
+    justify-content: space-between
+
+.derived-stats-container
+    display: flex
+    flex-direction: row
+    justify-content: space-evenly
+
+    padding-top: $row-padding
+    padding-bottom: $row-padding
+
+.derived-stats-container div
+    display: flex
+    flex-direction: column
+    align-items: center
+
+.derived-stats-container .border
+    display: flex
+    justify-content: center
+    align-items: center
+
+    width: 45px
+    height: 45px
+
+
+.border
+    border: 4px solid #874640
+
+.attributes, .skills
+    display: flex
+    flex-direction: column
+    row-gap: $row-gap
+
+.attribute, .skill
+    display: flex
+    align-items: center
+    justify-content: space-between
