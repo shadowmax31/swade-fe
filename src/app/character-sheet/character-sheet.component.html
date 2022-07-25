@@ -69,15 +69,19 @@
 
 <div class="armors">
     Armors
-    <div class="armor" *ngFor="let armor of c.armors">
+    <div class="armor line" *ngFor="let armor of c.armors">
         <div>
             <fa-icon *ngIf="armor.isChest" [icon]="faPlate"></fa-icon>
             <fa-icon *ngIf="armor.isShield" [icon]="faShield"></fa-icon>
             <fa-icon *ngIf="!armor.isChest && !armor.isShield"[icon]="faArmorOther"></fa-icon>
             <span>{{ armor.name }} ({{ formatBonus(armor.bonus) }})</span>
         </div>
+        <div class="line">
+            <button (click)="openArmor(armor)">Edit</button>
+            <button (click)="deleteArmor(armor)">Delete</button>
+        </div>
     </div>
-    <button (click)="manageArmors()">Manage armors</button>
+    <button (click)="openArmor()">Manage armors</button>
 </div>
 
 <!-- 
@@ -109,39 +113,39 @@
 </app-modal>
 
 <app-modal #armorModal [title]="'Armors'">
-    <div *ngIf="newArmor != null" class="block">
+    <div *ngIf="armor != null" class="block">
         <div class="line">
             <label>Name: </label>
-            <input [(ngModel)]="newArmor.name"/>
+            <input [(ngModel)]="armor.name"/>
         </div>
 
         <div class="line">
             <label>Bonus</label>
-            <input type="number" [(ngModel)]="newArmor.bonus"/>
+            <input type="number" [(ngModel)]="armor.bonus"/>
         </div>
 
         <div>
             <label for="chest">Chest Armor</label>
-            <input id="chest" type="checkbox" [(ngModel)]="newArmor.isChest" />
+            <input id="chest" type="checkbox" [(ngModel)]="armor.isChest" />
         </div>
 
         <div>
             <label for="shield">Shield</label>
-            <input id="shield" type="checkbox" [(ngModel)]="newArmor.isShield" />
+            <input id="shield" type="checkbox" [(ngModel)]="armor.isShield" />
         </div>
 
-        <div class="line" *ngIf="newArmor.isShield">
+        <div class="line" *ngIf="armor.isShield">
             <label for="shield">Cover</label>
-            <input type="number" [(ngModel)]="newArmor.cover"/>
+            <input type="number" [(ngModel)]="armor.cover"/>
         </div>
 
         <div>
             <label>Required Strength</label>
-            <app-die-selector class="flex-center" [(die)]="newArmor.requiredStr"></app-die-selector>
+            <app-die-selector class="flex-center" [(die)]="armor.requiredStr"></app-die-selector>
         </div>
 
         <div>
-            <button (click)="addArmor(newArmor)">Add</button>
+            <button (click)="saveArmor(armor)">Save</button>
         </div>
     </div>
 </app-modal>

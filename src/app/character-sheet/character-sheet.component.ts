@@ -23,7 +23,8 @@ export class CharacterSheetComponent implements OnInit {
 
   public c: Character;
   public skills: SkillInfo[] = [];
-  public newArmor: Armor | null = null;
+  public armor: Armor | null = null;
+  public newArmor = false;
 
   @ViewChild('armorModal')
   private armorModal!: ModalComponent;
@@ -53,13 +54,28 @@ export class CharacterSheetComponent implements OnInit {
 
   }
 
-  manageArmors() {
-    this.newArmor = new Armor();
+  openArmor(armor: Armor | null = null) {
+    if (armor == null) {
+      armor = new Armor();
+      this.newArmor = true;
+    }
+    else {
+      this.newArmor = false;
+    }
+
+    this.armor = armor;
     this.armorModal.open();
   }
 
-  addArmor(armor: Armor) {
-    this.c.armors.push(armor);
+  deleteArmor(armor: Armor) {
+    const index = this.c.armors.indexOf(armor);
+    this.c.armors.splice(index, 1);
+  }
+
+  saveArmor(armor: Armor) {
+    if (this.newArmor) {
+      this.c.armors.push(armor);
+    }
 
     this.armorModal.close();
   }

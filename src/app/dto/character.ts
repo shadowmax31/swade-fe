@@ -42,7 +42,7 @@ export class Character {
 
         let str = total.toString();
         if (armor > 0) {
-            str += `(${armor})`;
+            str += ` (${armor})`;
         }
 
         return str;
