@@ -11,6 +11,10 @@
         <label #size>Size:</label>
         <input for="size" type="number" [(ngModel)]="c.size" />
     </div>
+    <div class="line">
+        <label>Advance:</label>
+        <input type="number" [(ngModel)]="c.advance" />
+    </div>
 
     <div class="derived-stats-container">
         <div>
@@ -84,22 +88,26 @@
     <button (click)="openArmor()">Manage armors</button>
 </div>
 
-<!-- 
 <div>
     Powers
 </div>
 
 <div>
-    Edges and Advances
+    Gear
+</div>
+
+<div>
+    Edges
 </div>
 
 <div>
     Hindrances
+    <div *ngFor="let h of c.hindrances">
+        <input [(ngModel)]="h.description"/>
+        <button (click)="deleteHindrance(h)">Delete</button>
+    </div>
+    <input [(ngModel)]="newHindrance"(change)="addHindrance()"/>
 </div>
-
-<div>
-    Gear
-</div> -->
 
 <app-modal #skillModal [title]="'Skills'">
     <ng-container *ngIf="c != null">

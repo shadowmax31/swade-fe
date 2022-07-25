@@ -4,6 +4,7 @@ import { Armor } from '../dto/armor';
 import { AttributeUtils } from '../dto/attribute';
 import { Character } from '../dto/character';
 import { Die } from '../dto/die';
+import { Hindrance } from '../dto/hindrance';
 import { Skill, SkillInfo } from '../dto/skill';
 import { CharacterFactory } from '../factory/character-factory';
 import { ModalComponent } from '../modal/modal.component';
@@ -25,6 +26,7 @@ export class CharacterSheetComponent implements OnInit {
   public skills: SkillInfo[] = [];
   public armor: Armor | null = null;
   public newArmor = false;
+  public newHindrance = '';
 
   @ViewChild('armorModal')
   private armorModal!: ModalComponent;
@@ -107,4 +109,13 @@ export class CharacterSheetComponent implements OnInit {
     return this.skills.filter(x => !x.core);
   }
 
+  addHindrance() {
+    this.c.hindrances.push(new Hindrance(this.newHindrance));
+    this.newHindrance = '';
+  }
+
+  deleteHindrance(h: Hindrance) {
+    const index = this.c.hindrances.indexOf(h);
+    this.c.hindrances.splice(index, 1);
+  }
 }

@@ -1,11 +1,14 @@
 import { Armor } from "./armor";
 import { Die } from "./die";
+import { Edge } from "./edge";
+import { Hindrance } from "./hindrance";
 import { Skill, Skills } from "./skill";
 
 export class Character {
     public name: string;
     public race: string;
-    public size: number = 0;
+    public size = 0;
+    public advance = 0;
     
     public agility = Die.d4();
     public smarts = Die.d4();
@@ -15,6 +18,9 @@ export class Character {
 
     public skills: Skill[] = [];
     public armors: Armor[] = [];
+
+    public hindrances: Hindrance[] = [];
+    public edges: Edge[] = [];
 
     constructor(name: string, race: string) {
         this.name = name;
