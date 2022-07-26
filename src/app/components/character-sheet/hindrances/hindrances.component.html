@@ -1,10 +1,12 @@
 <div>
     Hindrances
     <ng-container *ngIf="character != null">
-        <div *ngFor="let h of character.hindrances">
+        <div class="line" *ngFor="let h of character.hindrances">
             <input [(ngModel)]="h.description"/>
             <button (click)="remove(h)">Delete</button>
         </div>
-        <input [(ngModel)]="newHindrance" (change)="add()"/>
+        <div class="line">
+            <input [(ngModel)]="newHindrance" (change)="add()"/>
+        </div>
     </ng-container>
 </div>
