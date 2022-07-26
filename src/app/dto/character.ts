@@ -3,6 +3,7 @@ import { Die } from "./die";
 import { Edge } from "./edge";
 import { Hindrance } from "./hindrance";
 import { Skill, Skills } from "./skill";
+import { Weapon } from "./weapon";
 
 export class Character {
     public name: string;
@@ -17,6 +18,8 @@ export class Character {
     public vigor = Die.d4();
 
     public skills: Skill[] = [];
+
+    public weapons: Weapon[] = [];
     public armors: Armor[] = [];
 
     public hindrances: Hindrance[] = [];

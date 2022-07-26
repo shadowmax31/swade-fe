@@ -1,1 +1,35 @@
-<p>weapons works!</p>
+<div class="block">
+    Weapons
+    <ng-container *ngIf="character">
+        <div class="armor line" *ngFor="let weapon of character.weapons">
+            <div>
+                <fa-icon *ngIf="weapon.range.isNone()" [icon]="faMelee"></fa-icon>
+                <fa-icon *ngIf="!weapon.range.isNone()" [icon]="faShooting"></fa-icon>
+                <span>{{ weapon.name }}</span>
+            </div>
+            <div class="line">
+                <button (click)="open(weapon)">Edit</button>
+                <button (click)="remove(weapon)">Delete</button>
+            </div>
+        </div>
+        <button (click)="open()">Add weapon</button>
+    </ng-container>
+</div>
+
+<app-modal #weaponModal [title]="'Armors'">
+    <div *ngIf="weapon != null" class="block">
+        <div class="line">
+            <label>Name: </label>
+            <input [(ngModel)]="weapon.name"/>
+        </div>
+
+        <div>
+            <label>Required Strength</label>
+            <app-die-selector class="flex-center" [(die)]="weapon.requiredStr"></app-die-selector>
+        </div>
+
+        <div>
+            <button (click)="save(weapon)">Save</button>
+        </div>
+    </div>
+</app-modal>

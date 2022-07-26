@@ -1,7 +1,7 @@
 <div class="armors">
     Armors
     <ng-container *ngIf="character != null">
-        <div class="armor line" *ngFor="let armor of character.armors">
+        <div class="line" *ngFor="let armor of character.armors">
             <div>
                 <fa-icon *ngIf="armor.isChest" [icon]="faPlate"></fa-icon>
                 <fa-icon *ngIf="armor.isShield" [icon]="faShield"></fa-icon>
@@ -13,7 +13,7 @@
                 <button (click)="remove(armor)">Delete</button>
             </div>
         </div>
-        <button (click)="open()">Manage armors</button>
+        <button (click)="open()">Add armor</button>
     </ng-container>
 </div>
 
