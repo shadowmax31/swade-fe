@@ -1,0 +1,22 @@
+<div *ngIf="character != null" class="attributes">
+    <div class="attribute">
+        Agility
+        <app-die-selector [(die)]="character.agility"></app-die-selector>
+    </div>
+    <div class="attribute">
+        Smarts
+        <app-die-selector [(die)]="character.smarts"></app-die-selector>
+    </div>
+    <div class="attribute">
+        Spirit
+        <app-die-selector [(die)]="character.spirit"></app-die-selector>
+    </div>
+    <div class="attribute">
+        Strength
+        <app-die-selector [(die)]="character.strength"></app-die-selector>
+    </div>
+    <div class="attribute">
+        Vigor
+        <app-die-selector [(die)]="character.vigor"></app-die-selector>
+    </div>
+</div>

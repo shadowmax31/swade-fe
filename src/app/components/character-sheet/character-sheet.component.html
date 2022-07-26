@@ -1,162 +1,20 @@
-<div class="block">
-    <div class="line">
-        <label #name>Name:</label>
-        <input for="name" [(ngModel)]="c.name" />
-    </div>
-    <div class="line">
-        <label #race>Race:</label>
-        <input for="race" [(ngModel)]="c.race" />
-    </div>
-    <div class="line">
-        <label #size>Size:</label>
-        <input for="size" type="number" [(ngModel)]="c.size" />
-    </div>
-    <div class="line">
-        <label>Advance:</label>
-        <input type="number" [(ngModel)]="c.advance" />
-    </div>
-
-    <div class="derived-stats-container">
-        <div>
-            <label>Pace</label>
-            <div class="border">{{ c.getPace() }}</div>
-        </div>
-        <div>
-            <label>Parry</label>
-            <div class="border">{{ c.getParry() }}</div>
-        </div>
-        <div>
-            <label>Toughness</label>
-            <div class="border">{{ c.getToughness() }}</div>
-        </div>
-    </div>
-</div>
-
-<div class="attributes">
-    <div class="attribute">
-        Agility
-        <app-die-selector [(die)]="c.agility"></app-die-selector>
-    </div>
-    <div class="attribute">
-        Smarts
-        <app-die-selector [(die)]="c.smarts"></app-die-selector>
-    </div>
-    <div class="attribute">
-        Spirit
-        <app-die-selector [(die)]="c.spirit"></app-die-selector>
-    </div>
-    <div class="attribute">
-        Strength
-        <app-die-selector [(die)]="c.strength"></app-die-selector>
-    </div>
-    <div class="attribute">
-        Vigor
-        <app-die-selector [(die)]="c.vigor"></app-die-selector>
-    </div>
-</div>
+<app-base-info [character]="c"></app-base-info>
+<app-derived-stats [character]="c"></app-derived-stats>
+<app-attributes [character]="c"></app-attributes>
 
 <hr />
 
-<div class="skills">
-    <div class="skill" *ngFor="let skill of c.skills">
-        <div>{{ skill.getName() }} ({{ AttributeUtils.toString(skill.getAttribute()) }})</div>
-        <div *ngIf="skill.getDescription() != null">{{ skill.getDescription() }}</div>
-        <app-die-selector [(die)]="skill.die"></app-die-selector>
-    </div>
-    <button (click)="manageSkills()">Manage skills</button>
-</div>
+<app-skills [character]="c"></app-skills>
 
 <div class="weapons">
     Weapons 
-    <button (click)="manageWeapons()">Manage weapons</button>
+    <button>Manage weapons</button>
 </div>
 
-<div class="armors">
-    Armors
-    <div class="armor line" *ngFor="let armor of c.armors">
-        <div>
-            <fa-icon *ngIf="armor.isChest" [icon]="faPlate"></fa-icon>
-            <fa-icon *ngIf="armor.isShield" [icon]="faShield"></fa-icon>
-            <fa-icon *ngIf="!armor.isChest && !armor.isShield"[icon]="faArmorOther"></fa-icon>
-            <span>{{ armor.name }} ({{ formatBonus(armor.bonus) }})</span>
-        </div>
-        <div class="line">
-            <button (click)="openArmor(armor)">Edit</button>
-            <button (click)="deleteArmor(armor)">Delete</button>
-        </div>
-    </div>
-    <button (click)="openArmor()">Manage armors</button>
-</div>
+<app-armors [character]="c"></app-armors>
 
-<div>
-    Powers
-</div>
+<app-powers></app-powers>
+<app-gear></app-gear>
+<app-edges></app-edges>
 
-<div>
-    Gear
-</div>
-
-<div>
-    Edges
-</div>
-
-<div>
-    Hindrances
-    <div *ngFor="let h of c.hindrances">
-        <input [(ngModel)]="h.description"/>
-        <button (click)="deleteHindrance(h)">Delete</button>
-    </div>
-    <input [(ngModel)]="newHindrance"(change)="addHindrance()"/>
-</div>
-
-<app-modal #skillModal [title]="'Skills'">
-    <ng-container *ngIf="c != null">
-        <div *ngFor="let info of getOtherSkills()" class="skill-row">
-            <div>{{ info.name }}</div>
-            <div *ngIf="c.findSkill(info.id) == null">
-                <button (click)="addSkill(info)">Add</button>
-            </div>
-            <div *ngIf="c.findSkill(info.id) != null">
-                <button (click)="removeSkill(info)">Remove</button>
-            </div>
-        </div>
-    </ng-container>
-</app-modal>
-
-<app-modal #armorModal [title]="'Armors'">
-    <div *ngIf="armor != null" class="block">
-        <div class="line">
-            <label>Name: </label>
-            <input [(ngModel)]="armor.name"/>
-        </div>
-
-        <div class="line">
-            <label>Bonus</label>
-            <input type="number" [(ngModel)]="armor.bonus"/>
-        </div>
-
-        <div>
-            <label for="chest">Chest Armor</label>
-            <input id="chest" type="checkbox" [(ngModel)]="armor.isChest" />
-        </div>
-
-        <div>
-            <label for="shield">Shield</label>
-            <input id="shield" type="checkbox" [(ngModel)]="armor.isShield" />
-        </div>
-
-        <div class="line" *ngIf="armor.isShield">
-            <label for="shield">Cover</label>
-            <input type="number" [(ngModel)]="armor.cover"/>
-        </div>
-
-        <div>
-            <label>Required Strength</label>
-            <app-die-selector class="flex-center" [(die)]="armor.requiredStr"></app-die-selector>
-        </div>
-
-        <div>
-            <button (click)="saveArmor(armor)">Save</button>
-        </div>
-    </div>
-</app-modal>
+<app-hindrances [character]="c"></app-hindrances>

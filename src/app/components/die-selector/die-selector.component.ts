@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { faAnglesUp } from '@fortawesome/free-solid-svg-icons';
-import { Die } from '../../../dto/die';
+import { Die } from '../../dto/die';
 
 @Component({
   selector: 'app-die-selector',

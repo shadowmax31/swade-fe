@@ -1,0 +1,22 @@
+<div *ngIf="character != null" class="skills">
+    <div class="skill" *ngFor="let skill of character.skills">
+        <div>{{ skill.getName() }} ({{ AttributeUtils.toString(skill.getAttribute()) }})</div>
+        <div *ngIf="skill.getDescription() != null">{{ skill.getDescription() }}</div>
+        <app-die-selector [(die)]="skill.die"></app-die-selector>
+    </div>
+    <button (click)="manage()">Manage skills</button>
+</div>
+
+<app-modal #skillModal [title]="'Skills'">
+    <ng-container *ngIf="character != null">
+        <div *ngFor="let info of getOtherSkills()" class="skill-row">
+            <div>{{ info.name }}</div>
+            <div *ngIf="character.findSkill(info.id) == null">
+                <button (click)="add(info)">Add</button>
+            </div>
+            <div *ngIf="character.findSkill(info.id) != null">
+                <button (click)="remove(info)">Remove</button>
+            </div>
+        </div>
+    </ng-container>
+</app-modal>

@@ -1,0 +1,18 @@
+<div *ngIf="character" class="block">
+    <div class="line">
+        <label #name>Name:</label>
+        <input for="name" [(ngModel)]="character.name" />
+    </div>
+    <div class="line">
+        <label #race>Race:</label>
+        <input for="race" [(ngModel)]="character.race" />
+    </div>
+    <div class="line">
+        <label #size>Size:</label>
+        <input for="size" type="number" [(ngModel)]="character.size" />
+    </div>
+    <div class="line">
+        <label>Advance:</label>
+        <input type="number" [(ngModel)]="character.advance" />
+    </div>
+</div>

@@ -1,0 +1,56 @@
+<div class="armors">
+    Armors
+    <ng-container *ngIf="character != null">
+        <div class="armor line" *ngFor="let armor of character.armors">
+            <div>
+                <fa-icon *ngIf="armor.isChest" [icon]="faPlate"></fa-icon>
+                <fa-icon *ngIf="armor.isShield" [icon]="faShield"></fa-icon>
+                <fa-icon *ngIf="!armor.isChest && !armor.isShield"[icon]="faArmorOther"></fa-icon>
+                <span>{{ armor.name }} ({{ formatBonus(armor.bonus) }})</span>
+            </div>
+            <div class="line">
+                <button (click)="open(armor)">Edit</button>
+                <button (click)="remove(armor)">Delete</button>
+            </div>
+        </div>
+        <button (click)="open()">Manage armors</button>
+    </ng-container>
+</div>
+
+<app-modal #armorModal [title]="'Armors'">
+    <div *ngIf="armor != null" class="block">
+        <div class="line">
+            <label>Name: </label>
+            <input [(ngModel)]="armor.name"/>
+        </div>
+
+        <div class="line">
+            <label>Bonus</label>
+            <input type="number" [(ngModel)]="armor.bonus"/>
+        </div>
+
+        <div>
+            <label for="chest">Chest Armor</label>
+            <input id="chest" type="checkbox" [(ngModel)]="armor.isChest" />
+        </div>
+
+        <div>
+            <label for="shield">Shield</label>
+            <input id="shield" type="checkbox" [(ngModel)]="armor.isShield" />
+        </div>
+
+        <div class="line" *ngIf="armor.isShield">
+            <label for="shield">Cover</label>
+            <input type="number" [(ngModel)]="armor.cover"/>
+        </div>
+
+        <div>
+            <label>Required Strength</label>
+            <app-die-selector class="flex-center" [(die)]="armor.requiredStr"></app-die-selector>
+        </div>
+
+        <div>
+            <button (click)="save(armor)">Save</button>
+        </div>
+    </div>
+</app-modal>

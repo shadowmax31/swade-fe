@@ -1,0 +1,14 @@
+<div *ngIf="character" class="derived-stats-container">
+    <div>
+        <label>Pace</label>
+        <div class="border">{{ character.getPace() }}</div>
+    </div>
+    <div>
+        <label>Parry</label>
+        <div class="border">{{ character.getParry() }}</div>
+    </div>
+    <div>
+        <label>Toughness</label>
+        <div class="border">{{ character.getToughness() }}</div>
+    </div>
+</div>
